@@ -1,0 +1,103 @@
+/**
+ * AddButton.module.css
+ * Primary and Secondary "Add" button styling shared across lists.
+ * - Primary: solid brand background #2f4f2a, white text.
+ * - Secondary: light background, brand green text, subtle border.
+ * - Ensures consistent spacing, typography, and touch target size.
+ */
+
+/* Base metrics to keep variants consistent */
+:root {
+  /* fallback for focus ring */
+  --focus-ring: rgba(47, 79, 42, 0.35);
+}
+
+.primary {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 44px; /* comfortable touch target */
+  padding: 0.75rem 1.125rem; /* 12px 18px */
+  border: 0;
+  border-radius: 0.5rem; /* 8px */
+
+  /* Locked brand colors (instead of theme vars) */
+  background: #2f4f2a; /* brand primary fixed */
+  color: #ffffff;      /* brand inverse fixed */
+
+  font: inherit;
+  font-size: 0.875rem; /* 14px */
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: background 120ms ease-in-out, box-shadow 120ms ease-in-out;
+}
+
+/* Keep the same background on hover/active for strict visual identity */
+.primary:hover {
+  background: #2f4f2a;
+}
+
+.primary:focus-visible {
+  outline: none;
+  /* Fallback focus ring if theme token is missing */
+  box-shadow: 0 0 0 3px var(--focus-ring, rgba(47, 79, 42, 0.35));
+}
+
+.primary:active {
+  background: #2f4f2a;
+}
+
+.primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Secondary variant: light tone with brand green text */
+.secondary {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 44px; /* same touch target */
+  padding: 0.75rem 1.125rem; /* 12px 18px */
+  border: 1px solid rgba(47, 79, 42, 0.38); /* subtle border */
+  border-radius: 0.5rem; /* 8px */
+
+  background: #eef5ec; /* light green background */
+  color: #2f4f2a;      /* brand green text */
+
+  font: inherit;
+  font-size: 0.875rem; /* 14px */
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: background 120ms ease-in-out, border-color 120ms ease-in-out, box-shadow 120ms ease-in-out;
+}
+
+.secondary:hover {
+  background: #e7f0e4; /* slightly deeper */
+  border-color: #2f4f2a; /* emphasize on hover */
+}
+
+.secondary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus-ring, rgba(47, 79, 42, 0.35));
+}
+
+.secondary:active {
+  background: #e0ebdd; /* pressed */
+  border-color: #2f4f2a;
+}
+
+.secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

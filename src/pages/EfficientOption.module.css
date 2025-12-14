@@ -1,0 +1,196 @@
+/**
+ * EfficientOption.module.css
+ * Palette blanc / bleu-gris avec accents verts. Styles responsives et accessibles
+ * pour la section "L’option la plus efficace" (productivité).
+ */
+
+:root {
+  /* Palette locale à la section */
+  --e-bg: #ffffff;
+  --e-text-strong: #0f172a; /* slate-900 */
+  --e-text: #1f2937;        /* gray-800 */
+  --e-text-muted: #475569;  /* slate-600 */
+
+  --e-blue-700: #1d4ed8;    /* brand secondaire (bleu) */
+  --e-blue-800: #1e40af;
+  --e-green-600: #16a34a;   /* accent efficacité */
+  --e-green-700: #15803d;
+
+  --e-surface: #f8fafc;     /* slate-50 */
+  --e-border: #e5e7eb;      /* gray-200 */
+  --e-border-strong: #cbd5e1;/* slate-300 */
+
+  --e-focus: rgba(29, 78, 216, 0.35); /* bleu */
+}
+
+/* Section wrapper */
+.section {
+  background: var(--e-bg);
+  color: var(--e-text-strong);
+  border: 1px solid var(--e-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 2rem;
+  }
+}
+
+/* Header */
+.header {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.title {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.lead {
+  color: var(--e-text);
+  font-size: 1rem;
+}
+
+/* Feature band (optional visual stripe) */
+.band {
+  background: linear-gradient(180deg, #f1f5f9, #f8fafc);
+  border: 1px solid var(--e-border);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+/* Comparison table */
+.tableWrap {
+  overflow: auto;
+  border: 1px solid var(--e-border);
+  border-radius: 10px;
+  background: var(--e-surface);
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+.table th,
+.table td {
+  padding: 0.75rem 0.875rem;
+  border-bottom: 1px solid var(--e-border);
+  text-align: left;
+  vertical-align: top;
+}
+.table th {
+  background: #eef2ff; /* indigo-50 */
+  color: #1e293b;
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+}
+.table tr:last-child td {
+  border-bottom: none;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  background: #ecfeff; /* cyan-50 */
+  color: var(--e-blue-800);
+  border: 1px solid var(--e-border-strong);
+}
+
+/* Highlights grid */
+.highlights {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+@media (min-width: 768px) {
+  .highlights {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+.card {
+  background: var(--e-surface);
+  border: 1px solid var(--e-border);
+  border-radius: 10px;
+  padding: 0.875rem;
+  display: grid;
+  gap: 0.375rem;
+}
+.cardTitle {
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cardText {
+  color: var(--e-text);
+  font-size: 0.9375rem;
+}
+
+/* CTA row */
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+.ctaPrimary {
+  background: var(--e-green-600);
+  color: white;
+  border-radius: 10px;
+  padding: 0.625rem 0.875rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--e-green-700);
+  transition: background 120ms ease-in-out, transform 120ms ease-in-out;
+}
+.ctaPrimary:hover {
+  background: var(--e-green-700);
+}
+.ctaPrimary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--e-focus);
+}
+.ctaSecondary {
+  background: var(--e-surface);
+  color: var(--e-blue-800);
+  border: 1px solid var(--e-border-strong);
+  border-radius: 10px;
+  padding: 0.625rem 0.875rem;
+  font-weight: 600;
+  transition: border-color 120ms ease-in-out;
+}
+.ctaSecondary:hover {
+  border-color: var(--e-blue-800);
+}
+.ctaSecondary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--e-focus);
+}
+
+/* Utility */
+.kpi {
+  color: var(--e-green-700);
+  font-weight: 800;
+}
+.small {
+  color: var(--e-text-muted);
+  font-size: 0.875rem;
+}
+.sep {
+  height: 1px;
+  background: var(--e-border);
+  margin: 1rem 0;
+}

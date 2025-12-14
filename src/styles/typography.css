@@ -1,0 +1,50 @@
+/**
+ * typography.css
+ * Global, slightly reduced typography scale with responsive adjustments.
+ *
+ * Goals:
+ * - Make the overall text a bit smaller across the site to balance visuals.
+ * - Keep readability and accessibility (avoid iOS zoom on inputs by preserving 16px on small screens).
+ * - Preserve the existing style and color scheme; only scale font sizes.
+ *
+ * Approach:
+ * - Use a root variable for base font size and adjust via responsive breakpoints.
+ * - Import this stylesheet after theme.css so it overrides previous sizes (rem-based).
+ */
+
+/* Base: slightly smaller than 16px (readable yet more compact) */
+:root {
+  --base-font-size: 15px;
+}
+
+/* Apply the base font size to html so all rem-based sizing scales consistently */
+html {
+  font-size: var(--base-font-size);
+}
+
+/* Responsive fine-tuning: gently increase with screen size while staying under 16px */
+@media (min-width: 640px) {
+  :root {
+    --base-font-size: 15.25px;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --base-font-size: 15.5px;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --base-font-size: 15.75px;
+  }
+}
+
+/* Accessibility: prevent iOS Safari auto-zoom on focus when font-size < 16px.
+   Keep form controls at least 16px on small screens. */
+@media (max-width: 639.98px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}

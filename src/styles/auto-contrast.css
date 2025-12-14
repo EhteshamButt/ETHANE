@@ -1,0 +1,38 @@
+/**
+ * auto-contrast.css
+ * Enforces readable text on dark backgrounds by using data-contrast attributes.
+ *
+ * - [data-contrast="dark"]  => force white text on the element and common textual descendants.
+ * - [data-contrast="light"] => force dark text (local override for nested elements with light backgrounds).
+ *
+ * Priority:
+ * We use !important to reliably overcome scattered utility classes and ensure readability.
+ * A nested [data-contrast="light"] beat [data-contrast="dark"] due to later declaration.
+ */
+
+/* When the background is dark-like => prefer white text */
+[data-contrast="dark"],
+[data-contrast="dark"] :is(h1, h2, h3, h4, h5, h6, p, span, small, li, dt, dd, strong, em, a, button, label, blockquote, code, pre, figcaption, th, td) {
+  color: #ffffff !important;
+}
+
+/* Links: keep underline readable */
+[data-contrast="dark"] a {
+  text-decoration-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Icons (lucide-react uses currentColor) */
+[data-contrast="dark"] svg {
+  color: #ffffff !important;
+}
+
+/* Local override for elements with their own light background (e.g., inputs, white cards inside dark shells) */
+[data-contrast="light"],
+[data-contrast="light"] :is(h1, h2, h3, h4, h5, h6, p, span, small, li, dt, dd, strong, em, a, button, label, blockquote, code, pre, figcaption, th, td) {
+  color: var(--text-strong, #0f172a) !important;
+}
+
+/* Inputs and form controls usually have their own background and should respect their local contrast */
+[data-contrast="dark"] :is(input, textarea, select)[data-contrast="light"] {
+  color: var(--text-strong, #0f172a) !important;
+}

@@ -1,0 +1,61 @@
+/**
+ * header.css
+ * Unified visual surface for both sticky and floating headers.
+ * - Exact same color + transparency as the existing sticky header.
+ * - Applies consistently to any header that is sticky or floating.
+ * - Scoped with robust selectors and uses CSS variables for easy maintenance.
+ *
+ * Tokens mirror prior inline Tailwind values:
+ * - Surface: rgba(230,235,220,0.35)
+ * - Surface with blur support: rgba(230,235,220,0.25)
+ */
+
+:root {
+  /* Header tokens (rely on global tokens when available) */
+  --header-surface: rgba(230, 235, 220, 0.35);
+  --header-surface-blur: rgba(230, 235, 220, 0.25); /* used when backdrop-filter is supported for a lighter visual */
+  --header-border: var(--border-color, rgba(15, 23, 42, 0.08));
+  --header-text: var(--text-strong, #0f172a);
+  --header-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  --header-blur-amount: 8px;
+}
+
+/* Shared surface for headers (sticky and floating) */
+.site-header-surface,
+header.site-header,
+header[data-header="sticky"],
+header[data-header="floating"],
+/* Safety: target common utility-based headers without relying on extra attributes */
+header.sticky,
+header.fixed,
+.header-sticky,
+.header-floating {
+  color: var(--header-text);
+  background-color: var(--header-surface) !important;
+  border-bottom: 1px solid var(--header-border) !important;
+  box-shadow: var(--header-shadow);
+  -webkit-backdrop-filter: blur(var(--header-blur-amount));
+  backdrop-filter: blur(var(--header-blur-amount));
+}
+
+/* If backdrop-filter isn't supported, prefer the slightly denser tone (was used via supports- classes) */
+@supports not ((-webkit-backdrop-filter: blur(0)) or (backdrop-filter: blur(0))) {
+  .site-header-surface,
+  header.site-header,
+  header[data-header="sticky"],
+  header[data-header="floating"],
+  header.sticky,
+  header.fixed,
+  .header-sticky,
+  .header-floating {
+    background-color: var(--header-surface-blur) !important;
+  }
+}
+
+/* Inherit link color inside header without affecting action buttons (which keep their own styles) */
+.site-header-surface a,
+header.site-header a,
+header[data-header="sticky"] a,
+header[data-header="floating"] a {
+  color: inherit;
+}

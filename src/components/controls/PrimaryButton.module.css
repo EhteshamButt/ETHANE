@@ -1,0 +1,66 @@
+/**
+ * PrimaryButton.module.css
+ * Bouton primaire "Commencer" réutilisable (fond olive foncé #2F4F2A, texte blanc).
+ * - Contraste élevé (WCAG AA/AAA selon taille).
+ * - Variantes de taille sm / md / lg.
+ * - Focus ring visible pour l’accessibilité.
+ */
+
+.button {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 40px;
+  padding: 0.625rem 1rem; /* 10px 16px */
+  border: 0;
+  border-radius: 0.5rem;
+
+  background: #2f4f2a; /* olive foncé */
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: background 120ms ease-in-out, box-shadow 120ms ease-in-out, opacity 120ms;
+}
+
+.button:hover {
+  background: #324023; /* léger foncé cohérent (hover) */
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(47, 79, 42, 0.35);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Tailles */
+.sm {
+  min-height: 36px;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.8125rem; /* ~13px */
+}
+
+.md {
+  /* valeurs par défaut */
+}
+
+.lg {
+  min-height: 48px;
+  padding: 0.75rem 1.125rem;
+  font-size: 1rem; /* 16px */
+}
+
+/* Pleine largeur */
+.block {
+  width: 100%;
+}

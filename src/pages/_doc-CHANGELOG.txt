@@ -1,0 +1,5 @@
+2025-11-12
+- Download PDF now opens a full-screen preview with a Confirmation action.
+- Confirmation opens a tabbed payment modal (Card / Mobile money).
+- If already paid, Confirmation triggers direct download from the main preview container.
+- No routing changes; all flows use overlays/modals.

@@ -1,0 +1,60 @@
+/**
+ * SectionCard.module.css
+ * Shared card-like section styling to ensure visual consistency across Experience, Education,
+ * Certifications, and Career Highlights.
+ * - Uses theme tokens defined in styles/theme.css.
+ * - Keeps spacing, heading prominence, and optional icon badge unified.
+ */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  backdrop-filter: saturate(100%) blur(6px);
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 1rem;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0; /* allows truncation if needed */
+}
+
+.iconBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  color: var(--brand-primary);
+  background: rgba(60, 77, 42, 0.10);
+  flex: 0 0 auto;
+}
+
+.title {
+  font-size: 1rem; /* 16px */
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.actions {
+  margin-left: auto;
+}
+
+.content {
+  margin-top: 0.75rem;
+}

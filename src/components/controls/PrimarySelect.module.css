@@ -1,0 +1,37 @@
+/**
+ * PrimarySelect.module.css
+ * Select stylé comme le bouton « Commencer »:
+ * - Fond olive #2F4F2A, texte blanc, border-radius, focus ring.
+ * - Confort tactile mobile (hauteur/padding).
+ */
+
+.select {
+  appearance: none;
+  width: 100%;
+  min-height: 40px;
+  padding: 0.5rem 2rem 0.5rem 0.875rem; /* espace pour la flèche native */
+  border: 0;
+  border-radius: 0.5rem;
+
+  background: #2f4f2a;
+  color: #ffffff;
+
+  font: inherit;
+  font-weight: 600;       /* même poids que le bouton */
+  font-size: 0.875rem;    /* text-sm */
+  line-height: 1.2;
+
+  transition: box-shadow 120ms ease-in-out, opacity 120ms ease-in-out;
+}
+
+.select:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(47, 79, 42, 0.35);
+}
+
+.select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* iOS/Safari: conserver l'indicateur natif tout en gardant nos couleurs */
