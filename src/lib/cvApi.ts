@@ -1,4 +1,5 @@
 import type { ResumeData, ResumePlan } from '../types/resume'
+import { API_BASE } from '../config/api'
 
 export interface UserCvRecord {
   id: string
@@ -8,8 +9,6 @@ export interface UserCvRecord {
   updatedAt: number
   data: ResumeData
 }
-
-const API_BASE = 'http://127.0.0.1:8080'
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
   const res = await fetch(`${API_BASE}${path}`, {

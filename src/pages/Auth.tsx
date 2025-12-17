@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router'
 import PrimaryButton from '../components/controls/PrimaryButton'
 import PrimarySelect from '../components/controls/PrimarySelect'
 import { useAuthStore } from '../stores/auth'
-
-const API_BASE = 'http://127.0.0.1:8080'
+import { API_BASE } from '../config/api'
 
 async function authRequest(
   mode: 'login' | 'signup',

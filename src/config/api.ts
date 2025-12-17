@@ -20,7 +20,7 @@ const getApiBase = (): string => {
   }
   
   // Development: use localhost backend
-  return 'http://127.0.0.1:8080'
+  return 'https://ethan-ebackend.vercel.app'
 }
 
 export const API_BASE = getApiBase()
